@@ -22,7 +22,7 @@
   <img id="corner-gif" src="assets/robot.gif" alt="Animated robot" />
 
   <div class="wrapper" id="main-content" style="display: none;">
-    <aside class="sidebar reveal">
+    <aside class="sidebar reveal" id="sidebar">
       <div class="sidebar-inner">
         <div class="profile-photo-wrapper">
           <img src="assets/profile.png" alt="Kerem Gavcar" class="profile-photo" />
@@ -142,7 +142,11 @@
 
       <section id="projects" class="section reveal">
 
-        <h3 class="section-title" id="unity-projects">Unity Projects</h3>
+        <h3 class="section-title" id="unity-projects">
+          Unity Projects
+          <span class="section-note">(Full portfolio available soon)</span>
+        </h3>
+
         <div class="big-project-card">
           <div class="big-card-media">
             <iframe src="https://www.youtube.com/embed/dA04Yx7etE0" title="Snow Boarder 2D Gameplay" frameborder="0"
@@ -448,17 +452,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
   <script src="script.js"></script>
   <script>
-    // Eğer lottie animasyonu için svg container eklersen:
-    // <div id="corner-lottie"></div>
-    /*
-    lottie.loadAnimation({
-      container: document.getElementById('corner-lottie'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/robot.json'
-    });
-    */
   </script>
 </body>
 
