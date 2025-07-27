@@ -1,33 +1,39 @@
-// PRELOADER ANİMASYONU
 window.addEventListener('DOMContentLoaded', () => {
   const preloader = document.getElementById('preloader');
   const mainContent = document.getElementById('main-content');
   const hexagon = document.querySelector('.hexagon');
   const kLogo = document.getElementById('preloader-k');
-
-  // K harfini başta görünmez yap
+  const sidebar = document.getElementById('sidebar');
+  const about = document.getElementById('about');
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
   kLogo.style.opacity = 0;
-
-  // SVG hexagon çizim animasyonu 1s sürüyor (drawHex keyframes)
-  // Hexagon çizildikten sonra K yavaşça belirsin
   setTimeout(() => {
     kLogo.style.transition = 'opacity 0.6s cubic-bezier(.54,1.85,.31,.96)';
     kLogo.style.opacity = 1;
   }, 1000);
-
-  // Toplamda 1.7s beklet (1s hexagon + 0.7s K bekleme), sonra preloader kapanır
   setTimeout(() => {
     preloader.classList.add('hidden');
     setTimeout(() => {
       preloader.style.display = 'none';
       mainContent.style.display = 'flex';
-      // Sayfa açıldığında ilk reveal'leri tetikle
-      revealOnScroll();
+      reveals.forEach(el => el.classList.remove('revealed'));
+      setTimeout(() => {
+        sidebar.classList.add('revealed');
+        setTimeout(() => {
+          about.classList.add('revealed');
+          let delay = 0;
+          reveals.forEach(el => {
+            if (el !== sidebar && el !== about) {
+              setTimeout(() => el.classList.add('revealed'), delay);
+              delay += 120;
+            }
+          });
+        }, 500); 
+      }, 250); 
+
     }, 400);
   }, 1700);
 });
-
-// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -37,8 +43,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
-
-// SPOTLIGHT EFEKTİ
 document.addEventListener('mousemove', e => {
   const x = (e.clientX / window.innerWidth) * 100;
   const y = (e.clientY / window.innerHeight) * 100;
@@ -49,8 +53,6 @@ document.addEventListener('mouseleave', () => {
   document.body.style.setProperty('--x', `50vw`);
   document.body.style.setProperty('--y', `50vh`);
 });
-
-// NAV-LINK ACTIVE SECTION VURGUSU
 const sections = document.querySelectorAll('.section');
 const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
@@ -72,16 +74,12 @@ window.addEventListener('scroll', () => {
 window.addEventListener('DOMContentLoaded', () => {
   navLinks[0].classList.add('active');
 });
-
-// REVEAL-ON-SCROLL ANİMASYONU
 function revealOnScroll() {
   const reveals = document.querySelectorAll('.reveal');
   const windowHeight = window.innerHeight;
   reveals.forEach((el, idx) => {
     const elementTop = el.getBoundingClientRect().top;
-    // Reveal trigger point
     if (elementTop < windowHeight - 90) {
-      // Reveal delay kademeli (Brittany stili) için:
       el.style.transition = `opacity 0.7s cubic-bezier(.54,1.85,.31,.96) ${(idx * 0.13).toFixed(2)}s, transform 0.8s cubic-bezier(.54,1.85,.31,.96) ${(idx * 0.13).toFixed(2)}s`;
       el.classList.add('revealed');
     }
@@ -89,8 +87,6 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('resize', revealOnScroll);
-
-// GITHUB PROJELERİNİ ÇEKME (Opsiyonel, yukarıdan kopyalandı)
 fetch('https://api.github.com/users/keremgavcarr/repos')
   .then(res => res.json())
   .then(repos => {
@@ -111,8 +107,6 @@ fetch('https://api.github.com/users/keremgavcarr/repos')
   .catch(err => {
     console.error('GitHub repos cannot be fetched:', err);
   });
-
-// Blender kart lightbox
 document.querySelectorAll('.blender-card img').forEach(img => {
   img.addEventListener('click', function () {
     const lightbox = document.getElementById('img-lightbox');
