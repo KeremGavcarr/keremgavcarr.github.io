@@ -1,628 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kerem Gavcar</title>
+  <title>Kerem Gavcar | Unreal Engine Gameplay Developer</title>
+  <meta name="description" content="Kerem Gavcar - Unreal Engine Gameplay Developer portfolio featuring combat systems, enemy AI, Unity/AR prototypes and Blender assets." />
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
-
-<body>
-  <div id="preloader">
-    <div class="loader-container">
-      <svg viewBox="0 0 100 100" class="hexagon">
-        <polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5" />
-      </svg>
-      <div class="loader-logo" id="preloader-k">K</div>
+<body class="is-loading">
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-mark">
+      <svg viewBox="0 0 100 100" class="loader-hexagon"><polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"></polygon></svg>
+      <span class="loader-letter">K</span>
     </div>
   </div>
-  <img id="corner-gif" src="assets/robot.gif" alt="Animated robot" />
 
-<div class="wrapper" id="main-content" style="display: none;">
-  <aside class="sidebar reveal" id="sidebar">
-    <div class="sidebar-inner">
-      <div class="profile-photo-wrapper">
-        <img src="assets/profile.png" alt="Kerem Gavcar" class="profile-photo" />
-        <div class="profile-photo-border"></div>
-      </div>
+  <div class="noise"></div>
+  <div class="blueprint-grid"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="spotlight"></div>
 
-      <div class="name">
-        <h1>Kerem Gavcar</h1>
-        <h2>Unreal Engine Gameplay Developer</h2>
-        <p>
-          I build gameplay systems, combat mechanics, enemy AI behaviors, and playable vertical slices using
-          Unreal Engine, Blueprint, and C++.
-        </p>
-      </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Go to top">
+        <span class="brand-mark">
+          <svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,5 93,27.5 93,72.5 50,95 7,72.5 7,27.5"></polygon></svg>
+          <span>K</span>
+        </span>
+        <span class="brand-text">
+          <strong>Kerem Gavcar</strong>
+          <small>Gameplay Developer</small>
+        </span>
+      </a>
 
-      <nav>
-        <ul class="side-nav">
-          <li><a href="#about" class="nav-link">ABOUT</a></li>
-          <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
-          <li><a href="#projects" class="nav-link">PROJECTS</a></li>
-        </ul>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#unreal">Unreal</a>
+        <a href="#unity">Unity</a>
+        <a href="#blender">Blender</a>
+        <a href="#contact">Contact</a>
       </nav>
+    </div>
+  </header>
 
-      <div class="social-icons">
-        <a href="https://github.com/keremgavcarr" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="assets/github.svg" alt="GitHub icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/kerem-gavcar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="assets/linkedin.svg" alt="LinkedIn icon" />
-        </a>
-        <a href="https://www.artstation.com/keremgavcar" target="_blank" rel="noopener noreferrer" aria-label="ArtStation">
-          <img src="assets/artstation.svg" alt="ArtStation icon" />
-        </a>
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="status-line">
+            <span class="pulse-dot"></span>
+            <span>Unreal Engine Gameplay Developer</span>
+            <span>Blueprint</span>
+            <span>C++</span>
+          </div>
+
+          <h1>
+            <span>Combat systems.</span>
+            <span>Enemy AI.</span>
+            <span class="accent-line">Playable feel.</span>
+          </h1>
+
+          <p class="hero-text">
+            I build gameplay-first prototypes with responsive combat loops, enemy behaviors, interaction logic,
+            inventory/equipment flow, and clear player feedback — mainly in <strong>Unreal Engine</strong>.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#unreal" class="btn btn-primary">View Unreal Showcase</a>
+            <a href="#blender" class="btn btn-secondary">3D Asset Work</a>
+          </div>
+
+          <div class="hud-strip" aria-label="portfolio highlights">
+            <div><span>Primary Role</span><strong>Gameplay Developer</strong></div>
+            <div><span>Core Focus</span><strong>Combat / AI</strong></div>
+            <div><span>Current Build</span><strong>Action RPG Vertical Slice</strong></div>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal">
+          <div class="profile-card tactical-card">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner bottom-right"></div>
+
+            <div class="profile-card-head">
+              <span class="profile-topline">Gameplay-focused opportunities</span>
+              <span class="availability"><i></i>Available</span>
+            </div>
+
+            <div class="profile-image-wrap">
+              <img src="assets/profile.png" alt="Portrait of Kerem Gavcar" class="profile-image" />
+            </div>
+
+            <div class="profile-details">
+              <h2>Kerem Gavcar</h2>
+              <p>Gameplay Developer focused on Unreal Engine systems, combat readability, enemy AI behavior, and playable prototype polish.</p>
+            </div>
+
+            <div class="profile-stats">
+              <div><span>Main Engine</span><strong>UE5</strong></div>
+              <div><span>Stack</span><strong>Blueprint / C++</strong></div>
+              <div><span>Support</span><strong>Unity / AR / Blender</strong></div>
+            </div>
+
+            <div class="chip-row">
+              <span class="chip">Combat Systems</span>
+              <span class="chip">Enemy AI</span>
+              <span class="chip">Inventory Flow</span>
+              <span class="chip">Gameplay UI</span>
+            </div>
+
+            <div class="social-row">
+              <a href="https://github.com/keremgavcarr" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><img src="assets/github.svg" alt="GitHub" /></a>
+              <a href="https://www.linkedin.com/in/kerem-gavcar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/linkedin.svg" alt="LinkedIn" /></a>
+              <a href="https://www.artstation.com/keremgavcar" target="_blank" rel="noopener noreferrer" aria-label="ArtStation"><img src="assets/artstation.svg" alt="ArtStation" /></a>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div>
-  </aside>
-<main class="main-content">
-  <section class="about-section section reveal" id="about">
-    <h2><span class="section-index">01.</span> About Me</h2>
+    </section>
 
-    <div class="about-text">
-      <p>
-        Hi, I'm <span class="highlight">Kerem Gavcar</span>, a Computer Engineer with an M.Sc. in
-        <span class="highlight">Game Technologies</span>, focused on
-        <span class="highlight">Unreal Engine gameplay development</span>.
-      </p>
+    <section class="section" id="about">
+      <div class="container reveal">
+        <div class="section-heading">
+          <span class="section-label">About</span>
+          <h2>Systems, feedback, and playable structure.</h2>
+        </div>
 
-      <p>
-        I design and implement <span class="highlight">gameplay systems</span>,
-        <span class="highlight">combat mechanics</span>,
-        <span class="highlight">enemy AI behaviors</span>,
-        interaction logic, inventory/equipment systems, projectile mechanics, UI feedback, and playable prototypes
-        using <span class="highlight">Unreal Engine</span>,
-        <span class="highlight">Blueprint</span>, and
-        <span class="highlight">C++</span>.
-      </p>
-<p>
-  My engineering background helps me approach <span class="highlight">Unreal Engine development</span>
-  with a system-oriented mindset, focusing on modular architecture, reusable gameplay logic, performance awareness,
-  and rapid iteration.
-</p>
+        <div class="about-layout">
+          <div class="about-copy tactical-card">
+            <p>I design and implement <strong>gameplay systems</strong>, <strong>combat mechanics</strong>, <strong>enemy AI behaviors</strong>, interaction logic, projectile mechanics, UI feedback, and inventory/equipment systems using <strong>Unreal Engine</strong>, <strong>Blueprint</strong>, and <strong>C++</strong>.</p>
+            <p>My engineering background pushes me toward <strong>modular architecture</strong>, reusable gameplay logic, performance awareness, and rapid iteration. Alongside Unreal work, I also have hands-on experience with <strong>Unity</strong>, <strong>Vuforia-based AR applications</strong>, <strong>Blender asset creation</strong>, and <strong>Python/Selenium automation tools</strong>.</p>
+            <p>My current direction is building <strong>responsive combat</strong>, readable feedback loops, and <strong>playable vertical slices</strong> that feel intentional rather than just technically functional.</p>
+          </div>
 
-<p>
-  Alongside my Unreal Engine focus, I also have practical experience with
-  <span class="highlight">Unity</span>, <span class="highlight">Vuforia-based AR applications</span>,
-  <span class="highlight">Blender asset creation</span>, and
-  <span class="highlight">Python/Selenium automation tools</span>, which support my broader technical production
-  workflow.
-</p>
-
-      <div class="interests-row">
-        <span class="highlight-green">Core technical focus:</span>
-        <ul class="interest-list">
-          <li>Unreal Engine</li>
-          <li>Blueprint</li>
-          <li>C++</li>
-          <li>Gameplay Systems</li>
-          <li>Combat Systems</li>
-          <li>Enemy AI</li>
-          <li>Unity / AR</li>
-          <li>Blender</li>
-          <li>Python Automation</li>
-        </ul>
+          <div class="focus-grid">
+            <article class="focus-card tactical-card"><span>01</span><h3>Gameplay Systems</h3><p>Combat loops, interactions, equipment, objectives, UI/HUD feedback, and player flow.</p></article>
+            <article class="focus-card tactical-card"><span>02</span><h3>Enemy & Combat AI</h3><p>Melee/ranged behavior, attack decisions, hit reaction flow, encounters, and readability.</p></article>
+            <article class="focus-card tactical-card"><span>03</span><h3>Unity / AR</h3><p>Interactive app flow, C# gameplay logic, marker-based AR, and mobile-ready implementation.</p></article>
+            <article class="focus-card tactical-card"><span>04</span><h3>3D Content Support</h3><p>Blender assets that support prototyping, worldbuilding, and cross-discipline iteration.</p></article>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <p>
-        My current focus is building <span class="highlight">polished gameplay systems</span>,
-        <span class="highlight">responsive combat mechanics</span>, and
-        <span class="highlight">playable vertical slices</span> that combine solid technical architecture with strong
-        player feedback.
-      </p>
-    </div>
-  </section>
-      <section id="experience" class="section reveal">
-        <h2><span class="section-index">02.</span> Experience</h2>
-
-        <div class="experience-entry">
-          <div class="date-range">2025 — Present</div>
-          <h4>
-            <span class="highlight">Unreal Engine Gameplay Developer</span> · <strong>Indie Project</strong>
-          </h4>
-          <p>
-            Developing a singleplayer action RPG vertical slice in <strong>Unreal Engine</strong>, focused on
-            responsive combat, enemy AI behavior, lock-on camera systems, projectile mechanics, dodge mechanics,
-            interaction systems, inventory/equipment logic, UI feedback, and encounter-based progression.
-          </p>
-          <p>
-            Built gameplay systems primarily with <strong>Blueprint</strong> and <strong>C++</strong>, focusing on
-            rapid iteration, modular gameplay architecture, data-driven item logic, and polished player feedback.
-          </p>
-          <div class="experience-tags">
-            <span class="experience-tag">Unreal Engine</span>
-            <span class="experience-tag">Blueprint</span>
-            <span class="experience-tag">C++</span>
-            <span class="experience-tag">Gameplay Systems</span>
-            <span class="experience-tag">Combat Systems</span>
-            <span class="experience-tag">Enemy AI</span>
-          </div>
+    <section class="section" id="experience">
+      <div class="container reveal">
+        <div class="section-heading">
+          <span class="section-label">Experience</span>
+          <h2>Hands-on development timeline</h2>
         </div>
 
-        <div class="experience-entry">
-          <div class="date-range">Nov 2024 — May 2025</div>
-          <h4>
-            <span class="highlight">AR Game Developer</span> · <strong>TÜBİTAK 1001 Project</strong>
-          </h4>
-          <p>
-            Developed a Unity/Vuforia-based augmented reality application for pediatric dental clinics, focused on
-            reducing children’s dental anxiety through interactive 3D experiences, marker-based AR tracking, custom
-            audio integration, and mobile-ready visual assets.
-          </p>
-          <p>
-            Designed stylized characters and environments in <strong>Blender</strong>, integrated
-            <strong>Vuforia</strong> tracking into <strong>Unity</strong>, and contributed to the full interactive
-            application flow from prototype to clinical-use-ready implementation.
-          </p>
-          <div class="experience-tags">
-            <span class="experience-tag">Unity</span>
-            <span class="experience-tag">C#</span>
-            <span class="experience-tag">Vuforia</span>
-            <span class="experience-tag">AR</span>
-            <span class="experience-tag">Blender</span>
-          </div>
+        <div class="timeline">
+          <article class="timeline-card tactical-card"><div class="timeline-meta">2025 — Present</div><div class="timeline-body"><h3>Unreal Engine Gameplay Developer <span>· Indie Project</span></h3><p>Developing a singleplayer action RPG vertical slice in Unreal Engine, focused on responsive combat, lock-on systems, dodge mechanics, projectile skills, enemy AI, interaction systems, inventory/equipment flow, and encounter-based progression.</p><div class="chip-row compact"><span class="chip">Unreal Engine</span><span class="chip">Blueprint</span><span class="chip">C++</span><span class="chip">Combat Systems</span><span class="chip">Enemy AI</span></div></div></article>
+          <article class="timeline-card tactical-card"><div class="timeline-meta">Nov 2024 — May 2025</div><div class="timeline-body"><h3>AR Game Developer <span>· TÜBİTAK 1001 Project</span></h3><p>Developed a Unity/Vuforia-based augmented reality application for pediatric dental clinics, combining interactive 3D content, marker-based AR tracking, custom audio flow, and mobile-ready asset integration.</p><div class="chip-row compact"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Vuforia</span><span class="chip">AR</span><span class="chip">Blender</span></div></div></article>
+          <article class="timeline-card tactical-card"><div class="timeline-meta">2023 — Present</div><div class="timeline-body"><h3>Game Development & Technical Prototyping</h3><p>Built and iterated on multiple PC/mobile prototypes covering player controls, game feel, UI, level flow, AI behavior, skill mechanics, and portfolio-ready build/video presentation.</p><div class="chip-row compact"><span class="chip">Game Prototyping</span><span class="chip">Unreal Engine</span><span class="chip">Unity</span><span class="chip">Game Design</span><span class="chip">Blender</span></div></div></article>
         </div>
-
-        <div class="experience-entry">
-          <div class="date-range">2023 — Present</div>
-          <h4>
-            <span class="highlight">Game Development & Technical Prototyping</span>
-          </h4>
-          <p>
-            Developed and iterated on multiple PC and mobile game prototypes, working on player controls, game feel,
-            AI behavior, UI systems, level flow, skill mechanics, and playable demo production. Shared selected builds,
-            videos, and project materials through portfolio and GitHub channels.
-          </p>
-          <div class="experience-tags">
-            <span class="experience-tag">Game Prototyping</span>
-            <span class="experience-tag">Unreal Engine</span>
-            <span class="experience-tag">Unity</span>
-            
-            <span class="experience-tag">C#</span>
-            <span class="experience-tag">Blender</span>
-            <span class="experience-tag">Game Design</span>
-          </div>
-        </div>
-      </section>
-      <section id="projects" class="section reveal">
-        <h3 class="section-title">Unreal Engine Projects</h3>
-        <div class="big-project-card">
-  <div class="big-card-media">
-    <iframe
-      src="https://www.youtube.com/embed/vpe0Nf8ttNw"
-      title="Akira - Unreal Engine 5 Action RPG Demo"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
-
-  <div class="big-card-body">
-    <h3 class="big-card-title">Akira - Action RPG Demo (UE5)</h3>
-
-    <p class="big-card-desc">
-      A playable action RPG demo developed in Unreal Engine 5, featuring third-person character control,
-      melee combat, lock-on targeting, dodge, skills, enemy AI, encounters, inventory/equipment systems,
-      UI/HUD, objective feedback, NPC interaction, and cinematic gameplay moments.
-    </p>
-
-    <div class="tags">
-      <span>Unreal Engine 5</span>
-      <span>Action RPG</span>
-      <span>Blueprints</span>
-      <span>Combat Systems</span>
-      <span>Enemy AI</span>
-    </div>
-
-    <a href="https://youtu.be/vpe0Nf8ttNw" class="project-btn" target="_blank">YouTube</a>
-  </div>
-</div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/FgiQLnGe0vU" title="Lilith Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Lilith (UE5)</h3>
-            <p class="big-card-desc">A dark-fantasy RPG level with environmental storytelling, stylized assets and
-              character design. Built in Unreal Engine 5.</p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>RPG</span>
-              <span>Level Design</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/Lilith-RPG-3D-UnrealEngine" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/FgiQLnGe0vU" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/ECMWxLRyvaM" title="Memory Reboot Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Memory Reboot</h3>
-            <p class="big-card-desc">A sci-fi puzzle level designed and built with Unreal Engine 5. Environment-based
-              puzzles, lighting and mood design.</p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>Puzzle</span>
-              <span>Level Design</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/Memory-Reboot-3D-LevelDesign-UnrealEngine" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/ECMWxLRyvaM" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/dSf0p9euXFU" title="Plant Has Dried Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Plant Has Dried</h3>
-            <p class="big-card-desc">A stylized platformer level in Unreal Engine with custom 3D models, lighting, and
-              environment design.</p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>Platformer</span>
-              <span>Level Design</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/PlantHasDried-3D-UnrealEngine" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/dSf0p9euXFU" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/8PkcJVis988" title="Castle Escape 3D Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Castle Escape 3D </h3>
-            <p class="big-card-desc">Escape from a mysterious castle solving puzzles and overcoming obstacles! Designed
-              with Unreal Engine 5, this 3D adventure level features unique mechanics, stylized visuals, and atmospheric
-              design.</p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>3D</span>
-              <span>Puzzle</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/Castle-Escape-3D-UnrealEngine" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://www.youtube.com/watch?v=8PkcJVis988" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/kJSnHVpBqJo" title="Obstacle Assault UE5 C++ Gameplay"
-              frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Obstacle Assault (UE5 C++)</h3>
-            <p class="big-card-desc">
-              3D platformer obstacle course built in Unreal Engine 5 using C++. Features moving platforms, obstacles and
-              player controller logic from scratch.
-            </p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>C++</span>
-              <span>Platformer</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/ObstacleAssault-UE5-Cpp" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/kJSnHVpBqJo" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/F9bHEpJrWK8" title="Warehouse Wreckage UE5 Gameplay"
-              frameborder="0" allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Warehouse Wreckage (UE5)</h3>
-            <p class="big-card-desc">
-              First-person shooter demo set in an abandoned warehouse. Blueprint-based character, shooting, and enemy
-              logic. Made in Unreal Engine 5.
-            </p>
-            <div class="tags">
-              <span>Unreal Engine 5</span>
-              <span>Blueprint</span>
-              <span>Shooter</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/WarehouseWreckage---Unreal-Engine-5" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/F9bHEpJrWK8" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-
-        <h3 class="section-title" id="unity-projects">
-          Unity Projects
-          <span class="section-note">(Full portfolio available soon)</span>
-        </h3>
-
-        <div class="big-project-card">
-  <div class="big-card-media">
-    <iframe src="https://www.youtube.com/embed/hjLLcUxTdi4"
-            title="Obstacle Dodge (Unity)"
-            frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="big-card-body">
-    <h3 class="big-card-title">Obstacle Dodge – Arcade Game </h3>
-    <p class="big-card-desc">
-      A fast-paced <strong>arcade dodge game</strong> built in Unity. 
-      Control your player to <strong>avoid incoming hazards</strong> and survive as long as possible! 
-      Features include <strong>score tracking</strong>, prefab-based obstacle spawning, 
-      <strong>collision detection</strong>, and a dynamic <strong>Cinemachine camera</strong>.
-    </p>
-    <div class="tags">
-      <span>Unity</span><span>C#</span><span>Arcade</span><span>Game Mechanics</span>
-    </div>
-    <a href="https://youtu.be/hjLLcUxTdi4" class="project-btn" target="_blank">YouTube</a>
-  </div>
-</div>
-
-        <!-- Unity FPS Survival Projesi -->
-<div class="big-project-card">
-  <div class="big-card-media">
-    <!-- YouTube video ID'ni VIDEO_ID ile değiştir -->
-    <iframe src="https://www.youtube.com/embed/7aCSDYArElg"
-            title="Island Horde (Unity FPS Survival)"
-            frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="big-card-body">
-    <h3 class="big-card-title">Zombie Island Survival – FPS Survival</h3>
-   <p class="big-card-desc">
-  Island-themed FPS mini survival: <strong>terrain + water</strong>, 
-  <strong>day–night cycle</strong>, minimap, 
-  shooting with zombie <strong>knockback</strong>, 
-  health pickups on enemy death, 
-  damage/health bar, and a <strong>Game Over</strong> screen.
-</p>
-
-    <div class="tags">
-      <span>Unity</span><span>C#</span><span>FPS</span><span>AI/Combat</span>
-    </div>
-    <a href="https://www.youtu.be/7aCSDYArElg" class="project-btn" target="_blank">YouTube</a>
-  </div>
-</div>
-
-<div class="big-project-card">
-  <div class="big-card-media">
-    <!-- YouTube linkini ekle -->
-    <iframe src="https://www.youtube.com/embed/RKyAdBEHxdk"
-            title="Brick Breaker (Unity)"
-            frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="big-card-body">
-    <h3 class="big-card-title">Brick Breaker – Arcade Game </h3>
-    <p class="big-card-desc">
-      Classic <strong>brick breaker</strong> remake with modern touches: 
-      <strong>3 progressive levels</strong>, bricks with <strong>1–3 hit points</strong> and 
-      changing sprites, background <strong>arcade music</strong>, 
-      impact <strong>animations & sounds</strong>, and particle effects when bricks are destroyed.
-    </p>
-    <div class="tags">
-      <span>Unity</span><span>C#</span><span>Arcade</span><span>Game Feel</span>
-    </div>
-    <a href="https://youtu.be/RKyAdBEHxdk" class="project-btn" target="_blank">YouTube</a>
-  </div>
-</div>
-
-
-<div class="big-project-card">
-  <div class="big-card-media">
-    <!-- YouTube linkini ekle -->
-    <iframe src="https://www.youtube.com/embed/URfVWmP8mr8"
-            title="Gold Runner (Unity)"
-            frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="big-card-body">
-    <h3 class="big-card-title">Gold Runner – 3D Platformer </h3>
-    <p class="big-card-desc">
-      A fast-paced <strong>3D platformer</strong> built in Unity: collect <strong>gold coins</strong>,
-      avoid <strong>obstacles</strong>, and survive dangerous paths. Features background
-      <strong>arcade music</strong>, <strong>death sounds</strong> when falling, and score-based progression.
-    </p>
-    <div class="tags">
-      <span>Unity</span><span>C#</span><span>3D</span><span>Platformer</span>
-    </div>
-    <a href="https://www.youtu.be/URfVWmP8mr8" class="project-btn" target="_blank">YouTube</a>
-  </div>
-</div>
-
-
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/dA04Yx7etE0" title="Snow Boarder 2D Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Snow Boarder 2D </h3>
-            <p class="big-card-desc">
-              Glide through snowy hills and perform tricks while avoiding obstacles! A Unity & C# project focusing on
-              beginner 2D platformer mechanics.
-            </p>
-            <div class="tags">
-              <span>Unity</span>
-              <span>C#</span>
-              <span>2D</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/Snow-Boarder-2D-Unity" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/dA04Yx7etE0" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <div class="big-project-card">
-          <div class="big-card-media">
-            <iframe src="https://www.youtube.com/embed/YeCxPlDlcLs" title="Delivery Driver 2D Gameplay" frameborder="0"
-              allowfullscreen></iframe>
-          </div>
-          <div class="big-card-body">
-            <h3 class="big-card-title">Delivery Driver 2D </h3>
-            <p class="big-card-desc">
-              Drive around town delivering packages while avoiding obstacles. Built with Unity and C#, focusing on
-              beginner mechanics.
-            </p>
-            <div class="tags">
-              <span>Unity</span>
-              <span>C#</span>
-              <span>2D</span>
-            </div>
-            <a href="https://github.com/KeremGavcarr/Delivery-Driver-2D-Unity" class="project-btn"
-              target="_blank">GitHub</a>
-            <a href="https://youtu.be/YeCxPlDlcLs" class="project-btn" target="_blank">YouTube</a>
-          </div>
-        </div>
-        <h3 class="section-title">Blender Projects</h3>
-        <div class="blender-grid">
-          <div class="blender-card">
-            <img src="assets/projects/lighthouse.png" alt="Lighthouse Island">
-            <h4>Lighthouse Island</h4>
-            <p>Low-poly lighthouse island model for stylized or mobile projects.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Lighthouse-Island-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/airplane.png" alt="Realistic Airplane Scene">
-            <h4>Realistic Airplane Scene</h4>
-            <p>Realistic airplane scene with detailed environment and lighting.</p>
-            <a href="https://github.com/KeremGavcarr/Realistic-3D-Airplane-Scene" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/street.png" alt="3D Street Scene">
-            <h4>Street Scene</h4>
-            <p>Detailed street scene with houses and barrels for urban environments.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Street-Scene-with-Houses-and-Barrels" target="_blank">View on
-              GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/trex.png" alt="3D Low Poly T-Rex Scene">
-            <h4>Low Poly T-Rex Scene</h4>
-            <p>Colorful low poly T-Rex scene suitable for games or education.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Low-Poly-T-Rex-Scene" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/television_man.png" alt="Television Head Character">
-            <h4>Television Head Character</h4>
-            <p>Stylized television head character with run cycle animation.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Television-Head-Character-with-Run-Cycle-Animation"
-              target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/dungeon.png" alt="Dungeon Environment">
-            <h4>Dungeon Environment</h4>
-            <p>Modular dungeon scene, ideal for fantasy and adventure games.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Dungeon-Environment" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/hamburger.png" alt="Stylized 3D Hamburger">
-            <h4>Stylized 3D Hamburger</h4>
-            <p>Fun stylized hamburger model for games, renders, and AR/VR projects.</p>
-            <a href="https://github.com/KeremGavcarr/Stylized-3D-Hamburger-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/wizard_hat.png" alt="Stylized Wizard Hat">
-            <h4>Stylized Wizard Hat</h4>
-            <p>Cartoon-style wizard hat model perfect for fantasy games and animations.</p>
-            <a href="https://github.com/KeremGavcarr/Stylized-Wizard-Hat-3D-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/piggybank.png" alt="Stylized Pink Piggy Bank">
-            <h4>Stylized Pink Piggy Bank</h4>
-            <p>A cute piggy bank 3D model. Ideal for educational or stylized scenes.</p>
-            <a href="https://github.com/KeremGavcarr/Stylized-Pink-Piggy-Bank" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/seramic.png" alt="Stylized Ceramic Crockery">
-            <h4>Stylized Ceramic Crockery</h4>
-            <p>Stylized crockery set for kitchen scenes and product visualization.</p>
-            <a href="https://github.com/KeremGavcarr/Stylized-3D-Ceramic-Crockery-Blender" target="_blank">View on
-              GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/mushroom.png" alt="Organic Mushroom Family">
-            <h4>Organic Mushroom Family</h4>
-            <p>Organic stylized mushroom family, great for environments and world-building.</p>
-            <a href="https://github.com/KeremGavcarr/Organic-Mushroom-Family-Blender" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/robot.png" alt="Robot Character">
-            <h4>Robot Character</h4>
-            <p>Stylized 3D robot model for animation & games.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Robot-Character-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/astronot.png" alt="Astronaut Character">
-            <h4>Astronaut Character</h4>
-            <p>Cute 3D astronaut model for educational apps.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Astronaut-Character-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/dentalmirror.png" alt="Dental Mirror">
-            <h4>Dental Mirror</h4>
-            <p>High-res dental mirror for AR/VR simulations.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Dental-Mirror-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/duck.png" alt="Duck Character">
-            <h4>Duck Character</h4>
-            <p>Cute 3D duck model, perfect for stylized or educational games.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Duck-Character-Model" target="_blank">View on GitHub</a>
-          </div>
-          <!-- Yeni eklenen sade modeller -->
-          <div class="blender-card">
-            <img src="assets/projects/dental_aerator.png" alt="Dental Aerotor">
-            <h4>Dental Aerotor</h4>
-            <p>Low-poly dental handpiece model for medtech and AR projects.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Dental-Aerotor-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/lidocaine_spray.png" alt="Lidocaine Spray">
-            <h4>Lidocaine Spray</h4>
-            <p>Realistic spray bottle model. Used for medtech visualization.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Lidocaine-Spray-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/handtorch.png" alt="Hand Torch">
-            <h4>Hand Torch</h4>
-            <p>Low-poly torch model for utility, game or AR/VR scenes.</p>
-            <a href="https://github.com/KeremGavcarr/3D-HandTorch-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/bed.png" alt="Bed">
-            <h4>Bed</h4>
-            <p>Simple stylized bed model for interior or medtech visualizations.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Bed-Model" target="_blank">View on GitHub</a>
-          </div>
-          <div class="blender-card">
-            <img src="assets/projects/pillow.png" alt="Pillow">
-            <h4>Pillow</h4>
-            <p>Soft stylized pillow model for games, animation or archviz.</p>
-            <a href="https://github.com/KeremGavcarr/3D-Pillow-Model" target="_blank">View on GitHub</a>
-          </div>
-        </div>
-        <button id="showMoreBtn" class="show-more-btn">Show More</button>
-      </section>
-
-      <div id="img-lightbox"
-        style="display:none; position:fixed; z-index:3000; top:0; left:0; width:100vw; height:100vh; background:rgba(15,28,36,0.89); align-items:center; justify-content:center;">
-        <img id="lightbox-img" src="" alt="Large Project Image"
-          style="max-width:78vw; max-height:78vh; border-radius:18px; box-shadow:0 2px 24px #64ffda60; border:2px solid #64ffda;">
       </div>
-    </main>
+    </section>
+
+    <section class="section unreal-section" id="unreal">
+      <div class="container reveal">
+        <div class="section-heading section-heading-split">
+          <div>
+            <span class="section-label">Unreal Engine</span>
+            <h2>Flagship gameplay work</h2>
+          </div>
+          <p class="section-intro">The portfolio’s main section. Akira is treated as the flagship build; earlier Unreal projects are presented as supporting gameplay and level-design studies.</p>
+        </div>
+
+        <article class="akira-showcase tactical-card">
+          <div class="akira-media akira-slider" data-slider>
+            <div class="akira-slides">
+              <img class="akira-slide is-active" src="assets/projects/akira-slide-2.png" alt="Akira boss encounter wide shot" />
+              <img class="akira-slide" src="assets/projects/akira-slide-1.png" alt="Akira main menu environment" />
+              <img class="akira-slide" src="assets/projects/akira-slide-3.png" alt="Akira objective gameplay scene" />
+              <img class="akira-slide" src="assets/projects/akira-slide-4.png" alt="Akira combat encounter scene" />
+            </div>
+            <div class="scanline"></div>
+            <span class="media-badge">In-game shots</span>
+            <div class="slider-caption">
+              <span data-slide-label>Boss Encounter</span>
+            </div>
+            <button class="slider-arrow slider-prev" type="button" aria-label="Previous Akira screenshot">‹</button>
+            <button class="slider-arrow slider-next" type="button" aria-label="Next Akira screenshot">›</button>
+            <div class="slider-dots" aria-label="Akira screenshot selector">
+              <button class="slider-dot is-active" type="button" aria-label="Show boss encounter screenshot"></button>
+              <button class="slider-dot" type="button" aria-label="Show main menu screenshot"></button>
+              <button class="slider-dot" type="button" aria-label="Show objective gameplay screenshot"></button>
+              <button class="slider-dot" type="button" aria-label="Show combat encounter screenshot"></button>
+            </div>
+          </div>
+          <div class="akira-body">
+            <div class="showcase-topline"><span class="section-label">Action RPG Vertical Slice</span><span class="pill">UE5</span></div>
+            <h3>Akira — Action RPG Demo</h3>
+            <p>Third-person action RPG demo with melee combat, lock-on targeting, dodge, skills, enemy AI, encounters, inventory/equipment systems, UI/HUD feedback, NPC interaction, and cinematic gameplay moments.</p>
+
+            <div class="system-list">
+              <div><span>01</span><strong>Combat Loop</strong><small>Melee, dodge, skills, feedback</small></div>
+              <div><span>02</span><strong>Enemy Logic</strong><small>AI states, attacks, encounters</small></div>
+              <div><span>03</span><strong>RPG Flow</strong><small>Inventory, HUD, objectives</small></div>
+            </div>
+
+            <div class="chip-row compact"><span class="chip">Combat Systems</span><span class="chip">Enemy AI</span><span class="chip">Interaction</span><span class="chip">Blueprint</span></div>
+            <div class="action-row"><a href="https://youtu.be/vpe0Nf8ttNw" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch Demo</a></div>
+          </div>
+        </article>
+
+        <div class="work-grid unreal-grid">
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/FgiQLnGe0vU/hqdefault.jpg" alt="Lilith" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Lilith</h3><p>Dark-fantasy RPG level focused on environmental storytelling, stylized art direction, and world presentation.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/Lilith-RPG-3D-UnrealEngine" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/FgiQLnGe0vU" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/ECMWxLRyvaM/hqdefault.jpg" alt="Memory Reboot" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Memory Reboot</h3><p>Sci-fi puzzle environment with mood-driven lighting, environmental puzzles, and clean level presentation.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/Memory-Reboot-3D-LevelDesign-UnrealEngine" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/ECMWxLRyvaM" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/dSf0p9euXFU/hqdefault.jpg" alt="Plant Has Dried" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Plant Has Dried</h3><p>Stylized platformer level with custom modeling, lighting, and environment-focused scene construction.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/PlantHasDried-3D-UnrealEngine" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/dSf0p9euXFU" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/8PkcJVis988/hqdefault.jpg" alt="Castle Escape 3D" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Castle Escape 3D</h3><p>Adventure level featuring puzzles, traversal, stylized visuals, and atmospheric environmental design.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/Castle-Escape-3D-UnrealEngine" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://www.youtube.com/watch?v=8PkcJVis988" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/kJSnHVpBqJo/hqdefault.jpg" alt="Obstacle Assault" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Obstacle Assault</h3><p>UE5 C++ platformer prototype featuring moving obstacles, player control logic, and gameplay scripting from scratch.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/ObstacleAssault-UE5-Cpp" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/kJSnHVpBqJo" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+          <article class="work-card tactical-card"><img src="https://img.youtube.com/vi/F9bHEpJrWK8/hqdefault.jpg" alt="Warehouse Wreckage" class="work-thumb" loading="lazy" /><div class="work-content"><span class="work-tag">Unreal Engine 5</span><h3>Warehouse Wreckage</h3><p>First-person shooter demo with Blueprint-based shooting, enemy logic, and rapid prototype presentation.</p><div class="action-row"><a href="https://github.com/KeremGavcarr/WarehouseWreckage---Unreal-Engine-5" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/F9bHEpJrWK8" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="unity">
+      <div class="container reveal">
+        <div class="section-heading section-heading-split">
+          <div>
+            <span class="section-label">Unity</span>
+            <h2>Supporting Unity prototypes</h2>
+          </div>
+          <p class="section-intro">Compact secondary showcase: arcade mechanics, FPS survival, 2D/3D prototypes, and C# practice.</p>
+        </div>
+
+        <div class="prototype-list">
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/hjLLcUxTdi4/hqdefault.jpg" alt="Obstacle Dodge" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Obstacle Dodge</h3><p>Arcade dodge game with prefab spawning, score tracking, collision flow, and Cinemachine camera.</p><a href="https://youtu.be/hjLLcUxTdi4" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/7aCSDYArElg/hqdefault.jpg" alt="Zombie Island Survival" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Zombie Island Survival</h3><p>FPS survival prototype with shooting, knockback, day-night cycle, minimap, pickups, and game-over flow.</p><a href="https://youtu.be/7aCSDYArElg" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/RKyAdBEHxdk/hqdefault.jpg" alt="Brick Breaker" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Brick Breaker</h3><p>Arcade remake with multiple levels, breakable bricks, state changes, and game-feel presentation.</p><a href="https://youtu.be/RKyAdBEHxdk" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/URfVWmP8mr8/hqdefault.jpg" alt="Gold Runner" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Gold Runner</h3><p>3D platformer focused on movement, hazard avoidance, score-driven play, and accessible arcade structure.</p><a href="https://youtu.be/URfVWmP8mr8" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/dA04Yx7etE0/hqdefault.jpg" alt="Snow Boarder 2D" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Snow Boarder 2D</h3><p>2D gameplay project around player control, momentum, obstacle interaction, and polish basics.</p><a href="https://github.com/KeremGavcarr/Snow-Boarder-2D-Unity" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/dA04Yx7etE0" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+          <article class="prototype-card tactical-card"><img src="https://img.youtube.com/vi/YeCxPlDlcLs/hqdefault.jpg" alt="Delivery Driver 2D" loading="lazy" /><div><span class="work-tag">Unity</span><h3>Delivery Driver 2D</h3><p>Small-scope Unity prototype centered on movement, package pickup, and delivery flow.</p><a href="https://github.com/KeremGavcarr/Delivery-Driver-2D-Unity" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a><a href="https://youtu.be/YeCxPlDlcLs" target="_blank" rel="noopener noreferrer" class="project-link">YouTube</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="blender">
+      <div class="container reveal">
+        <div class="section-heading section-heading-split">
+          <div>
+            <span class="section-label">Blender</span>
+            <h2>Selected 3D assets & studies</h2>
+          </div>
+          <button class="btn btn-secondary small" id="showMoreBtn">Show More</button>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card tactical-card"><img src="assets/projects/lighthouse.png" alt="Lighthouse Island" /><div><h3>Lighthouse Island</h3><p>Low-poly stylized environment piece.</p></div><a href="https://github.com/KeremGavcarr/3D-Lighthouse-Island-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/airplane.png" alt="Realistic Airplane Scene" /><div><h3>Realistic Airplane Scene</h3><p>Lighting and environment-focused realism study.</p></div><a href="https://github.com/KeremGavcarr/Realistic-3D-Airplane-Scene" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/street.png" alt="Street Scene" /><div><h3>Street Scene</h3><p>Detailed scene-building with houses and props.</p></div><a href="https://github.com/KeremGavcarr/3D-Street-Scene-with-Houses-and-Barrels" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/trex.png" alt="Low Poly T-Rex Scene" /><div><h3>Low Poly T-Rex Scene</h3><p>Colorful stylized scene suitable for games.</p></div><a href="https://github.com/KeremGavcarr/3D-Low-Poly-T-Rex-Scene" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/television_man.png" alt="Television Head Character" /><div><h3>Television Head Character</h3><p>Stylized character with animation appeal.</p></div><a href="https://github.com/KeremGavcarr/3D-Television-Head-Character-with-Run-Cycle-Animation" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/dungeon.png" alt="Dungeon Environment" /><div><h3>Dungeon Environment</h3><p>Fantasy modular scene for adventure settings.</p></div><a href="https://github.com/KeremGavcarr/3D-Dungeon-Environment" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/hamburger.png" alt="Stylized 3D Hamburger" /><div><h3>Stylized Hamburger</h3><p>Fun prop model with clean stylized forms.</p></div><a href="https://github.com/KeremGavcarr/Stylized-3D-Hamburger-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card"><img src="assets/projects/wizard_hat.png" alt="Stylized Wizard Hat" /><div><h3>Wizard Hat</h3><p>Cartoon fantasy prop study.</p></div><a href="https://github.com/KeremGavcarr/Stylized-Wizard-Hat-3D-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/piggybank.png" alt="Stylized Pink Piggy Bank" /><div><h3>Piggy Bank</h3><p>Cute stylized prop suitable for education/game scenes.</p></div><a href="https://github.com/KeremGavcarr/Stylized-Pink-Piggy-Bank" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/seramic.png" alt="Stylized Ceramic Crockery" /><div><h3>Ceramic Crockery</h3><p>Stylized kitchen set for product and scene renders.</p></div><a href="https://github.com/KeremGavcarr/Stylized-3D-Ceramic-Crockery-Blender" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/mushroom.png" alt="Organic Mushroom Family" /><div><h3>Mushroom Family</h3><p>Organic stylized set for world-building.</p></div><a href="https://github.com/KeremGavcarr/Organic-Mushroom-Family-Blender" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/robot.png" alt="Robot Character" /><div><h3>Robot Character</h3><p>Stylized character model for game art pipelines.</p></div><a href="https://github.com/KeremGavcarr/3D-Robot-Character-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/astronot.png" alt="Astronaut Character" /><div><h3>Astronaut Character</h3><p>Friendly character design for educational or stylized use.</p></div><a href="https://github.com/KeremGavcarr/3D-Astronaut-Character-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/dentalmirror.png" alt="Dental Mirror" /><div><h3>Dental Mirror</h3><p>Medical-visualization asset with practical use.</p></div><a href="https://github.com/KeremGavcarr/3D-Dental-Mirror-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/duck.png" alt="Duck Character" /><div><h3>Duck Character</h3><p>Stylized creature asset for playful scenes.</p></div><a href="https://github.com/KeremGavcarr/3D-Duck-Character-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/dental_aerator.png" alt="Dental Aerotor" /><div><h3>Dental Aerotor</h3><p>Low-poly medtech asset for AR workflows.</p></div><a href="https://github.com/KeremGavcarr/3D-Dental-Aerotor-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/lidocaine_spray.png" alt="Lidocaine Spray" /><div><h3>Lidocaine Spray</h3><p>Practical product-style model for visualization.</p></div><a href="https://github.com/KeremGavcarr/3D-Lidocaine-Spray-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/handtorch.png" alt="Hand Torch" /><div><h3>Hand Torch</h3><p>Utility prop suitable for stylized scenes.</p></div><a href="https://github.com/KeremGavcarr/3D-HandTorch-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/bed.png" alt="Bed" /><div><h3>Bed</h3><p>Interior model for environmental scene support.</p></div><a href="https://github.com/KeremGavcarr/3D-Bed-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+          <article class="gallery-card tactical-card hidden-card"><img src="assets/projects/pillow.png" alt="Pillow" /><div><h3>Pillow</h3><p>Simple soft prop model for interior composition.</p></div><a href="https://github.com/KeremGavcarr/3D-Pillow-Model" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container reveal">
+        <div class="contact-card tactical-card">
+          <div>
+            <span class="section-label">Contact</span>
+            <h2>Let’s build something playable.</h2>
+            <p>If you're looking for someone who cares about gameplay feel, combat clarity, and practical iteration, I'd be happy to connect.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="https://www.linkedin.com/in/kerem-gavcar" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Connect on LinkedIn</a>
+            <a href="https://github.com/keremgavcarr" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImage" src="" alt="Expanded project image" />
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Portfolio rebuilt with a cinematic game-developer presentation.</p>
+      <p>© 2026 Kerem Gavcar</p>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
-  <script>
-  </script>
 </body>
-
 </html>
-
-
