@@ -1,140 +1,159 @@
+const body = document.body;
+const preloader = document.getElementById('preloader');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelectorAll('.site-nav a');
+const revealItems = document.querySelectorAll('.reveal');
+const showMoreBtn = document.getElementById('showMoreBtn');
+const hiddenCards = document.querySelectorAll('.hidden-card');
+const galleryImages = document.querySelectorAll('.gallery-card img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
+const sections = document.querySelectorAll('main section[id]');
+
 window.addEventListener('DOMContentLoaded', () => {
-  const preloader = document.getElementById('preloader');
-  const mainContent = document.getElementById('main-content');
-  const hexagon = document.querySelector('.hexagon');
-  const kLogo = document.getElementById('preloader-k');
-  const sidebar = document.getElementById('sidebar');
-  const about = document.getElementById('about');
-  const reveals = Array.from(document.querySelectorAll('.reveal'));
-  kLogo.style.opacity = 0;
-  setTimeout(() => {
-    kLogo.style.transition = 'opacity 0.6s cubic-bezier(.54,1.85,.31,.96)';
-    kLogo.style.opacity = 1;
-  }, 1000);
   setTimeout(() => {
     preloader.classList.add('hidden');
-    setTimeout(() => {
-      preloader.style.display = 'none';
-      mainContent.style.display = 'flex';
-      reveals.forEach(el => el.classList.remove('revealed'));
-      setTimeout(() => {
-        sidebar.classList.add('revealed');
-        setTimeout(() => {
-          about.classList.add('revealed');
-          let delay = 0;
-          reveals.forEach(el => {
-            if (el !== sidebar && el !== about) {
-              setTimeout(() => el.classList.add('revealed'), delay);
-              delay += 120;
-            }
-          });
-        }, 500); 
-      }, 250); 
-
-    }, 400);
-  }, 1700);
+    body.classList.remove('is-loading');
+  }, 950);
 });
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
     }
   });
+}, { threshold: 0.12 });
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+window.addEventListener('mousemove', (event) => {
+  const x = `${(event.clientX / window.innerWidth) * 100}%`;
+  const y = `${(event.clientY / window.innerHeight) * 100}%`;
+  document.documentElement.style.setProperty('--mouse-x', x);
+  document.documentElement.style.setProperty('--mouse-y', y);
 });
-document.addEventListener('mousemove', e => {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-  document.body.style.setProperty('--x', `${x}%`);
-  document.body.style.setProperty('--y', `${y}%`);
+
+navToggle?.addEventListener('click', () => {
+  body.classList.toggle('menu-open');
+  navToggle.setAttribute('aria-expanded', String(body.classList.contains('menu-open')));
 });
-document.addEventListener('mouseleave', () => {
-  document.body.style.setProperty('--x', `50vw`);
-  document.body.style.setProperty('--y', `50vh`);
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    body.classList.remove('menu-open');
+    navToggle?.setAttribute('aria-expanded', 'false');
+  });
 });
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
-    }
+
+const setActiveNav = () => {
+  let currentId = '';
+  sections.forEach((section) => {
+    const top = section.offsetTop - 130;
+    if (window.scrollY >= top) currentId = section.id;
   });
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').slice(1) === current) {
-      link.classList.add('active');
-    }
+  navLinks.forEach((link) => {
+    const target = link.getAttribute('href').replace('#', '');
+    link.classList.toggle('active', target === currentId);
+  });
+};
+
+window.addEventListener('scroll', setActiveNav);
+window.addEventListener('load', setActiveNav);
+
+let galleryExpanded = false;
+showMoreBtn?.addEventListener('click', () => {
+  galleryExpanded = !galleryExpanded;
+  hiddenCards.forEach((card) => card.classList.toggle('is-visible-card', galleryExpanded));
+  showMoreBtn.textContent = galleryExpanded ? 'Show Less' : 'Show More';
+});
+
+galleryImages.forEach((image) => {
+  image.addEventListener('click', () => {
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    body.style.overflow = 'hidden';
   });
 });
-window.addEventListener('DOMContentLoaded', () => {
-  navLinks[0].classList.add('active');
+
+const closeLightbox = () => {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  body.style.overflow = body.classList.contains('menu-open') || body.classList.contains('is-loading') ? 'hidden' : '';
+};
+
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', (event) => {
+  if (event.target === lightbox) closeLightbox();
 });
-function revealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal');
-  const windowHeight = window.innerHeight;
-  reveals.forEach((el, idx) => {
-    const elementTop = el.getBoundingClientRect().top;
-    if (elementTop < windowHeight - 90) {
-      el.style.transition = `opacity 0.7s cubic-bezier(.54,1.85,.31,.96) ${(idx * 0.13).toFixed(2)}s, transform 0.8s cubic-bezier(.54,1.85,.31,.96) ${(idx * 0.13).toFixed(2)}s`;
-      el.classList.add('revealed');
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    if (lightbox.classList.contains('open')) closeLightbox();
+    if (body.classList.contains('menu-open')) {
+      body.classList.remove('menu-open');
+      navToggle?.setAttribute('aria-expanded', 'false');
     }
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('resize', revealOnScroll);
-fetch('https://api.github.com/users/keremgavcarr/repos')
-  .then(res => res.json())
-  .then(repos => {
-    const container = document.getElementById('repo-list');
-    if (!container) return;
-    repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-    repos.forEach(repo => {
-      const div = document.createElement('div');
-      div.className = 'project-item';
-      div.innerHTML = `
-        <h3>${repo.name}</h3>
-        ${repo.description ? `<p>${repo.description}</p>` : ''}
-        <a href="${repo.html_url}" target="_blank">View on GitHub →</a>
-      `;
-      container.appendChild(div);
+  }
+});
+
+
+// Akira gameplay screenshot slider
+const akiraSlider = document.querySelector('[data-slider]');
+if (akiraSlider) {
+  const slides = Array.from(akiraSlider.querySelectorAll('.akira-slide'));
+  const dots = Array.from(akiraSlider.querySelectorAll('.slider-dot'));
+  const prevButton = akiraSlider.querySelector('.slider-prev');
+  const nextButton = akiraSlider.querySelector('.slider-next');
+  const label = akiraSlider.querySelector('[data-slide-label]');
+  const labels = ['Boss Encounter', 'Main Menu', 'Objective Flow', 'Combat Encounter'];
+  let currentSlide = 0;
+  let sliderTimer;
+
+  const showSlide = (index) => {
+    currentSlide = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle('is-active', slideIndex === currentSlide);
     });
-  })
-  .catch(err => {
-    console.error('GitHub repos cannot be fetched:', err);
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('is-active', dotIndex === currentSlide);
+    });
+    if (label) label.textContent = labels[currentSlide] || `Screenshot ${currentSlide + 1}`;
+  };
+
+  const nextSlide = () => showSlide(currentSlide + 1);
+  const prevSlide = () => showSlide(currentSlide - 1);
+
+  const restartSlider = () => {
+    window.clearInterval(sliderTimer);
+    sliderTimer = window.setInterval(nextSlide, 4200);
+  };
+
+  nextButton?.addEventListener('click', () => {
+    nextSlide();
+    restartSlider();
   });
-document.querySelectorAll('.blender-card img').forEach(img => {
-  img.addEventListener('click', function () {
-    const lightbox = document.getElementById('img-lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    lightboxImg.src = this.src;
-    lightbox.style.display = 'flex';
+
+  prevButton?.addEventListener('click', () => {
+    prevSlide();
+    restartSlider();
   });
-});
-document.getElementById('img-lightbox').addEventListener('click', function (e) {
-  if (e.target === this) this.style.display = 'none';
-});
-const showMoreBtn = document.getElementById('showMoreBtn');
-const blenderCards = document.querySelectorAll('.blender-card');
-const DEFAULT_VISIBLE = 8;
-function updateCards(showAll) {
-  blenderCards.forEach((card, idx) => {
-    if (showAll) {
-      card.classList.remove('hidden');
-    } else {
-      if (idx < DEFAULT_VISIBLE) card.classList.remove('hidden');
-      else card.classList.add('hidden');
-    }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      restartSlider();
+    });
   });
+
+  akiraSlider.addEventListener('mouseenter', () => window.clearInterval(sliderTimer));
+  akiraSlider.addEventListener('mouseleave', restartSlider);
+
+  showSlide(0);
+  restartSlider();
 }
-let isShowingMore = false;
-showMoreBtn.addEventListener('click', function () {
-  isShowingMore = !isShowingMore;
-  updateCards(isShowingMore);
-  showMoreBtn.textContent = isShowingMore ? 'Show Less' : 'Show More';
-});
-updateCards(false);
