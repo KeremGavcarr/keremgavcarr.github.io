@@ -986,3 +986,135 @@ body.menu-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotat
     gap: 6px;
   }
 }
+
+
+/* =========================
+   V5.6 Contact polish
+   ========================= */
+
+.contact-card-v2 {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
+  gap: 34px;
+  align-items: center;
+  padding: 34px;
+}
+
+.contact-card-v2::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -120px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(83,255,230,0.16), transparent 62%);
+  pointer-events: none;
+}
+
+.contact-copy,
+.contact-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-copy h2 {
+  max-width: 760px;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-method {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(6, 15, 33, 0.78);
+  border: 1px solid rgba(83,255,230,0.18);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-2px);
+  border-color: rgba(83,255,230,0.42);
+  background: rgba(83,255,230,0.075);
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: var(--accent);
+  background: rgba(83,255,230,0.10);
+  border: 1px solid rgba(83,255,230,0.22);
+  box-shadow: 0 0 22px rgba(83,255,230,0.10);
+}
+
+.contact-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.contact-method small {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-method strong {
+  color: var(--text);
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.contact-card-v2 .contact-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.contact-card-v2 .btn {
+  width: 100%;
+}
+
+@media (max-width: 920px) {
+  .contact-card-v2 {
+    grid-template-columns: 1fr;
+    padding: 26px;
+  }
+
+  .contact-card-v2 .contact-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-card-v2 {
+    padding: 20px;
+  }
+
+  .contact-card-v2 .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method {
+    grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+  }
+}
